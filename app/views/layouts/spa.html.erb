@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minha SPA</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+  <div class="grid-container">
+    <header>
+      <h1>Minha SPA</h1>
+    </header>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <div class="sidebar">
+      <nav>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Graficos', charts_path %></li>
+          
+          <li>
+            <%= form_with url: destroy_user_session_path, method: :delete do %>
+              <%= submit_tag 'Logout', data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>
